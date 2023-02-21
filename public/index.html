@@ -157,6 +157,50 @@
         animation-fill-mode: forwards;
     }
 
+    #form-container {
+      text-align: center;
+        padding-bottom: 5rem;
+      }
+
+        #enter-email-input {
+        margin-top: 16px;
+        height: 4rem;
+        width:300px;
+        color: black;
+        font-size:1.5rem;
+        border-radius: 9px;
+        margin-right: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+     #success-message {
+        display: none;
+      }
+
+      #success-message.show {
+        display: block;
+        color: white;
+        font-size:1.5rem;
+        font-family:avenir;
+      }
+
+        #waitlist-button {
+        border: none;
+        width:200px;
+        height:4rem;
+        color: white;
+        background-color: #ED03F4;
+        border-radius: 9px;
+        padding: 10px;
+        text-align: center;
+        font-family: avenir;
+        font-size: 1.5rem;
+      }
+
+      #waitlist-button:hover {
+        background-color: #A400A9;
+      }
 
         @-webkit-keyframes spin {
         from {
@@ -268,6 +312,18 @@
     <div id="header">Let’s make it a <span id="paradise">paradise.</span></div>
     <div id="main-body"> Got an community idea? Join Queer Art Faire, Duly Nutted, Code Possible, and many others in bringing your dream community to life.</div>
 
+
+<form id="form-container" action="/api/send-to-google-sheets" method="post">
+  <input type="email" id="enter-email-input" name="email" placeholder="Email address:" />
+  <button id="waitlist-button" type="submit">
+    Join Waitlist
+  </button>
+</form>
+    <!-- <form id="form-container" action="/api/send-to-google-sheets" method="post">
+      <div id="success-message"> Thank you for your interest! The team will be in contact soon </div>
+          <input type="email" id="enter-email-input" name="email" placeholder="Email address:" />
+          <button id="waitlist-button" type="submit">Join Waitlist</button>
+    </form> -->
 
   </div>
 
@@ -413,16 +469,17 @@
       init(1);
     };
   </script>
-  <script>
-    const form = document.getElementById(‘form - container’);
-    const successMessage = document.getElementById(‘success - message’);
-    form.addEventListener(‘submit’, (e) => {
-      console.log(“event listener triggered”)
-      e.preventDefault();
-      successMessage.classList.add(‘show’);
-      setTimeout(() => form.submit(), 2000);
-    });
-  </script>
+<script>
+  const form = document.getElementById('form-container');
+  const successMessage = document.getElementById('success-message');
+  form.addEventListener('submit', (e) => {
+    console.log("event listener triggered")
+    e.preventDefault();
+    successMessage.classList.add('show');
+    setTimeout(() => form.submit(), 2000);
+  });
+
+</script>
 </body>
 
 </html>
