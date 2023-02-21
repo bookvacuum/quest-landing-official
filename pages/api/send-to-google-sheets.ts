@@ -59,7 +59,7 @@ async function loadSavedCredentialsIfExist() {
  * @return {Promise<void>}
  */
 async function saveCredentials(client: { credentials: { refresh_token: any; }; }) {
-  const content = await fs.readFile(CREDENTIALS_PATH);
+  const content = await fs.readFile(CREDENTIALS_PATH || process.env);
   const keys = JSON.parse(content);
   const key = keys.installed || keys.web;
   const payload = JSON.stringify({
