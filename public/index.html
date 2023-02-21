@@ -133,11 +133,6 @@
     }
 
     
-    #music-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-      }
 
     #main-body {
       margin-top: 2rem;
@@ -312,7 +307,7 @@
     </div>
     <div id="ground"></div>
   </div>
-<div id="music-container"></div>
+
   <div id="header-container">
     <div id="header">Community is what we make it.</div>
     <div id="header">Let’s make it a <span id="paradise">paradise.</span></div>
@@ -343,10 +338,6 @@
     var rotateSpeed = -60; // unit: seconds/360 degrees
     var imgWidth = 160; // width of images (unit: px)
     var imgHeight = 300; // height of images (unit: px)
-
-    // Link of background music - set 'null' if you dont want to play background music
-    var bgMusicURL = null;
-    var bgMusicControls = false; // Show UI music control
 
     /*
    NOTE:
@@ -419,14 +410,6 @@
     }
 
 
-    if (bgMusicURL) {
-      document.getElementById("music-container").innerHTML += `
-<audio src="${bgMusicURL}" ${bgMusicControls ? "controls" : ""
-        } autoplay loop>    
-<p>If you are reading this, it is because your browser does not support the audio element.</p>
-</audio>
-`;
-    }
 
     // setup events
     document.onpointerdown = function (e) {
