@@ -22,6 +22,11 @@
     }
 
     @font-face {
+  font-family: avenir;
+  src: url("images/avenir.ttf");
+}
+
+    @font-face {
       font-family: montseratt;
       src: url("images/montseratt.ttf");
     }
@@ -36,7 +41,7 @@
     body {
       height: 100%;
       /* for touch screen */
-      touch-action: none;
+      /* touch-action: none; */
     }
 
     body {
@@ -112,12 +117,6 @@
           transparent);
     }
 
-    #music-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
     #header-container {
       position: absolute;
       top: 90%;
@@ -163,6 +162,8 @@
       }
 
         #enter-email-input {
+          position: relative;
+        z-index: 1000;
         margin-top: 16px;
         height: 4rem;
         width:300px;
@@ -305,8 +306,7 @@
     </div>
     <div id="ground"></div>
   </div>
-
-  /* <div id="music-container"></div> */
+<div></div>
   <div id="header-container">
     <div id="header">Community is what we make it.</div>
     <div id="header">Let’s make it a <span id="paradise">paradise.</span></div>
@@ -339,8 +339,7 @@
     var imgHeight = 300; // height of images (unit: px)
 
     // Link of background music - set 'null' if you dont want to play background music
-    var bgMusicURL =
-      "https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a";
+    var bgMusicURL = null;
     var bgMusicControls = false; // Show UI music control
 
     /*
@@ -413,15 +412,6 @@
       )}s infinite linear`;
     }
 
-    // add background music
-    if (bgMusicURL) {
-      document.getElementById("music-container").innerHTML += `
-<audio src="${bgMusicURL}" ${bgMusicControls ? "controls" : ""
-        } autoplay loop>    
-<p>If you are reading this, it is because your browser does not support the audio element.</p>
-</audio>
-`;
-    }
 
     // setup events
     document.onpointerdown = function (e) {
@@ -459,7 +449,7 @@
         this.onpointermove = this.onpointerup = null;
       };
 
-      return false;
+      return true;
     };
 
     document.onmousewheel = function (e) {
