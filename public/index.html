@@ -164,9 +164,8 @@
 
         #enter-email-input {
           position: relative;
-        z-index: 1000;
         margin-top: 16px;
-        height: 4rem;
+        height: 3rem;
         width:300px;
         color: black;
         font-size:1.5rem;
@@ -174,6 +173,7 @@
         margin-right: 16px;
         padding-left: 16px;
         padding-right: 16px;
+        border-width: 0;
       }
 
      #success-message {
@@ -181,20 +181,23 @@
       }
 
       #success-message.show {
+        color: mediumspringgreen;
+        margin-top: 10px;
         display: block;
-        color: white;
-        font-size:1.5rem;
+        font-size:1rem;
         font-family:avenir;
+        animation: fadeOutAnimation ease 3s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
       }
 
         #waitlist-button {
         border: none;
         width:200px;
-        height:4rem;
+        height:3rem;
         color: white;
         background-color: #ED03F4;
         border-radius: 9px;
-        padding: 10px;
         text-align: center;
         font-family: avenir;
         font-size: 1.5rem;
@@ -237,6 +240,20 @@
           opacity: 1;
         }
       }
+
+      /* @keyframes fadeOutAnimation {
+        0% {
+          opacity: 1;
+        }
+
+        80% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      } */
 
       @-webkit-keyframes spinRevert {
         from {
@@ -311,14 +328,17 @@
   <div id="header-container">
     <div id="header">Community is what we make it.</div>
     <div id="header">Let’s make it a <span id="paradise">paradise.</span></div>
-    <div id="main-body"> Got an community idea? Join Queer Art Faire, Duly Nutted, Code Possible, and many others in bringing your dream community to life.</div>
+    <div id="main-body">Got a community idea? Join Queer Art Faire and many more building their dream communities on Quest today.</div>
 
+<!-- <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe> -->
 
 <form id="form-container" action="/api/send-to-google-sheets" method="post">
-  <input type="email" id="enter-email-input" name="email" placeholder="Email address:" />
-  <button id="waitlist-button" type="submit">
+  <input  required type="email"  pattern="[a-z0-9]*@[a-z0-9]*\.[a-z0-9]*" id="enter-email-input" name="email" placeholder="Email address:" />
+  <button id="waitlist-button" type="submit" onclick="hrefFunction()">
     Join Waitlist
   </button>
+  <p id="success-message"> Success! Sending good vibes your way soon</p>
+
 </form>
     <!-- <form id="form-container" action="/api/send-to-google-sheets" method="post">
       <div id="success-message"> Thank you for your interest! The team will be in contact soon </div>
@@ -328,10 +348,10 @@
 
   </div>
 
-  <!-- github corner (https://github.com/tholman/github-corners) -->
   </style>
 
   <script>
+    
     // You can change global variables here:
     var radius = 240; // how big of the radius
     var autoRotate = true; // auto rotate or not
