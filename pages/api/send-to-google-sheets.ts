@@ -2,6 +2,7 @@
 
 import type { NextApiRequest, NextApiResponse } from 'next'
 
+
 /**
  * Updates values in a Spreadsheet.
  * @param {string} spreadsheetId The spreadsheet ID.
@@ -13,8 +14,9 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 
 type Data = {
-  name: string
+  email: string
 }
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
@@ -110,8 +112,7 @@ async function authorize() {
       resource,
     });
     console.log('%d cells updated.', result.data.updatedCells);
-    res.status(200)
-    return result;
+    return res.redirect(302, "/index.html")
   } catch (err) {
     // TODO (Developer) - Handle exception
     res.status(500)
