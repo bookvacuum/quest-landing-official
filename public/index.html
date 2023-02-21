@@ -331,7 +331,7 @@
 <!-- <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe> -->
 
 <form id="form-container" action="/api/send-to-google-sheets" method="post">
-  <input  required type="email" pattern="[a-z0-9]*@[a-z0-9]*\.[a-z0-9]*" id="enter-email-input" name="email" placeholder="Email address:" />
+  <input  required type="email" pattern="[a-z0-9]*@[a-z0-9]*\.[a-z0-9]*" id="enter-email-input" onclick="select()" name="email" placeholder="Email address:" />
   <button id="waitlist-button" type="submit">
     Join Waitlist
   </button>
@@ -430,7 +430,7 @@
 
 
     // setup events
-    odrag.onpointerdown = function (e) {
+    document.onpointerdown = function (e) {
       clearInterval(odrag.timer);
       e = e || window.event;
       var sX = e.clientX,
