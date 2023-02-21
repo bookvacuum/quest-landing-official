@@ -309,8 +309,6 @@
 
     <div id="spin-container">
       <!-- Add your images (or video) here -->
-
-
       <img src="images/dulyNutted.png" alt="" />
       <img src="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/cfd27712-8871-4471-afec-9b351bf55f00/public" alt="" />
       <img src="images/gooff.png" alt="" />
@@ -333,8 +331,8 @@
 <!-- <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe> -->
 
 <form id="form-container" action="/api/send-to-google-sheets" method="post">
-  <input  required type="email"   onclick = "this.select()" pattern="[a-z0-9]*@[a-z0-9]*\.[a-z0-9]*" id="enter-email-input" name="email" placeholder="Email address:" />
-  <button id="waitlist-button" type="submit" onclick="hrefFunction()">
+  <input  required type="email" pattern="[a-z0-9]*@[a-z0-9]*\.[a-z0-9]*" id="enter-email-input" name="email" placeholder="Email address:" />
+  <button id="waitlist-button" type="submit">
     Join Waitlist
   </button>
   <p id="success-message"> Success! Sending good vibes your way soon</p>
@@ -432,7 +430,7 @@
 
 
     // setup events
-    document.onpointerdown = function (e) {
+    odrag.onpointerdown = function (e) {
       clearInterval(odrag.timer);
       e = e || window.event;
       var sX = e.clientX,
