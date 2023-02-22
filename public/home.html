@@ -42,6 +42,7 @@
       height: 100%;
       /* for touch screen */
       touch-action: none;
+      
     }
 
     body {
@@ -54,6 +55,14 @@
       perspective: 1000px;
       -webkit-transform-style: preserve-3d;
       transform-style: preserve-3d;
+    }
+
+    #half-page{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 70%;
+      z-index: 10;
     }
 
     #drag-container,
@@ -339,7 +348,7 @@
       <!-- Add your images (or video) here -->
       <img src="images/dulyNutted.png" alt="" />
       <img src="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/cfd27712-8871-4471-afec-9b351bf55f00/public" alt="" />
-      <img src="images/gooff.png" alt="" />
+      <img  src="images/gooff.png" alt="" />
       <img src="images/cozygames.png" alt="" />
       <img src="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/0aa6ea65-94ac-46d7-e8ea-ba4fa62e2f00/public" alt="" />
 
@@ -350,6 +359,8 @@
     </div>
     <div id="ground"></div>
   </div>
+
+  <div id="half-page"></div>
 
   <div id="header-container">
     <div id="header">Community is what we make it.</div>
@@ -396,11 +407,14 @@
     // ===================== start =======================
     setTimeout(init, 100);
 
+    var half = document.getElementById("half-page");
     var odrag = document.getElementById("drag-container");
     var ospin = document.getElementById("spin-container");
     var aImg = ospin.getElementsByTagName("img");
     var aVid = ospin.getElementsByTagName("video");
     var aEle = [...aImg, ...aVid]; // combine 2 arrays
+    // var both = document.querySelectorAll("#half-page, #drag-container");
+
 
     // Size of images
     ospin.style.width = imgWidth + "px";
@@ -457,14 +471,15 @@
 
 
 
+    
     // setup events
-    document.onpointerdown = function (e) {
+    odrag.onpointerdown = function (e) {
       clearInterval(odrag.timer);
       e = e || window.event;
       var sX = e.clientX,
         sY = e.clientY;
 
-      this.onpointermove = function (e) {
+      document.onpointermove = function (e) {
         e = e || window.event;
         var nX = e.clientX,
           nY = e.clientY;
@@ -477,7 +492,7 @@
         sY = nY;
       };
 
-      this.onpointerup = function (e) {
+      document.onpointerup = function (e) {
         odrag.timer = setInterval(function () {
           desX *= 0.95;
           desY *= 0.95;
@@ -495,6 +510,42 @@
 return false;
     };
 
+    half.onpointerdown = function (e) {
+        clearInterval(odrag.timer);
+        e = e || window.event;
+        var sX = e.clientX,
+          sY = e.clientY;
+
+        document.onpointermove = function (e) {
+          e = e || window.event;
+          var nX = e.clientX,
+            nY = e.clientY;
+          desX = nX - sX;
+          desY = nY - sY;
+          tX += desX * 0.1;
+          tY += desY * 0.1;
+          applyTranform(odrag);
+          sX = nX;
+          sY = nY;
+        };
+
+        document.onpointerup = function (e) {
+          odrag.timer = setInterval(function () {
+            desX *= 0.95;
+            desY *= 0.95;
+            tX += desX * 0.1;
+            tY += desY * 0.1;
+            applyTranform(odrag);
+            playSpin(false);
+            if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+              clearInterval(odrag.timer);
+              playSpin(true);
+            }
+          }, 17);
+          this.onpointermove = this.onpointerup = null;
+        };
+        return false;
+      };
     document.onmousewheel = function (e) {
       e = e || window.event;
       var d = e.wheelDelta / 20 || -e.detail;
