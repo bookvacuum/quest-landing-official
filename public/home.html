@@ -43,12 +43,13 @@
     body {
       height: 100%;
       /* for touch screen */
-      touch-action: pan-down;
+      touch-action: pan-y pinch-zoom;
       
     }
 
     body {
-      /* overflow: hidden; */
+ overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: scroll;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
