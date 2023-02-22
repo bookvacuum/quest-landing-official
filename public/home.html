@@ -8,6 +8,8 @@
   <meta name="description" content="Welcome to the future of social">
   <meta name="keywords" content="startup, quest, ourquest">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <script src="jquery-3.6.3.min.js"></script>
+
 
   <link rel="stylesheet" href="https://use.typekit.net/uov6xbj.css">
   <style>
@@ -57,14 +59,7 @@
       transform-style: preserve-3d;
     }
 
-    #half-page{
-      position: absolute;
-      top: 5rem;
-      left: 0;
-      width: 100%;
-      height: 55%;
-      z-index: 10;
-    }
+    
 
     #drag-container,
     #spin-container {
@@ -141,8 +136,16 @@
       font-family: montseratt;
       font-size: 1.8rem;
     }
-
     
+      #half-page{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20%;
+      z-index: 10;
+    }
+
 
     #main-body {
       margin-top: 2rem;
@@ -293,6 +296,47 @@
       }
     @media (min-width: 760px) {
 
+    #half-page{
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      z-index: 10;
+    }
+
+
+       #drag-container img,
+    #drag-container video {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      position: absolute;
+      left: 0;
+      top: -20%;
+      width: 100%;
+      height: 100%;
+      line-height: 200px;
+      font-size: 50px;
+      text-align: center;
+      -webkit-box-shadow: 0 0 8px #C70DCD;
+      box-shadow: 0 0 8px #C70DCD;
+      -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+    }
+    
+        #drag-container,
+    #spin-container {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: auto;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: rotateX(-10deg);
+      transform: rotateX(-10deg);
+    }
+
+
         #main-body {
       margin-bottom: 1.5rem;
     }
@@ -416,6 +460,7 @@
     var odrag = document.getElementById("drag-container");
     var ospin = document.getElementById("spin-container");
     var aImg = ospin.getElementsByTagName("img");
+    var bImg = odrag.getElementsByTagName("img");
     var aVid = ospin.getElementsByTagName("video");
     var aEle = [...aImg, ...aVid]; // combine 2 arrays
     // var both = document.querySelectorAll("#half-page, #drag-container");
@@ -475,9 +520,8 @@
     }
 
 
-
-    
-    // setup events
+  if (window.innerWidth > 760) {
+    console.log("desktop");
     odrag.onpointerdown = function (e) {
       clearInterval(odrag.timer);
       e = e || window.event;
@@ -512,51 +556,101 @@
         }, 17);
         this.onpointermove = this.onpointerup = null;
       };
-return false;
+      return false;
     };
 
     half.onpointerdown = function (e) {
-        clearInterval(odrag.timer);
-        e = e || window.event;
-        var sX = e.clientX,
-          sY = e.clientY;
+      clearInterval(odrag.timer);
+      e = e || window.event;
+      var sX = e.clientX,
+        sY = e.clientY;
 
-        document.onpointermove = function (e) {
-          e = e || window.event;
-          var nX = e.clientX,
-            nY = e.clientY;
-          desX = nX - sX;
-          desY = nY - sY;
+      document.onpointermove = function (e) {
+        e = e || window.event;
+        var nX = e.clientX,
+          nY = e.clientY;
+        desX = nX - sX;
+        desY = nY - sY;
+        tX += desX * 0.1;
+        tY += desY * 0.1;
+        applyTranform(odrag);
+        sX = nX;
+        sY = nY;
+      };
+
+      document.onpointerup = function (e) {
+        odrag.timer = setInterval(function () {
+          desX *= 0.95;
+          desY *= 0.95;
           tX += desX * 0.1;
           tY += desY * 0.1;
           applyTranform(odrag);
-          sX = nX;
-          sY = nY;
-        };
-
-        document.onpointerup = function (e) {
-          odrag.timer = setInterval(function () {
-            desX *= 0.95;
-            desY *= 0.95;
-            tX += desX * 0.1;
-            tY += desY * 0.1;
-            applyTranform(odrag);
-            playSpin(false);
-            if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
-              clearInterval(odrag.timer);
-              playSpin(true);
-            }
-          }, 17);
-          this.onpointermove = this.onpointerup = null;
-        };
-        return false;
+          playSpin(false);
+          if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+            clearInterval(odrag.timer);
+            playSpin(true);
+          }
+        }, 17);
+        this.onpointermove = this.onpointerup = null;
       };
+      return false;
+    };
     document.onmousewheel = function (e) {
       e = e || window.event;
       var d = e.wheelDelta / 20 || -e.detail;
       radius += d;
       init(1);
     };
+  }
+  else {
+    console.log("mobile");
+    half.onpointerdown = function (e) {
+      clearInterval(odrag.timer);
+      e = e || window.event;
+      var sX = e.clientX,
+        sY = e.clientY;
+
+      document.onpointermove = function (e) {
+        e = e || window.event;
+        var nX = e.clientX,
+          nY = e.clientY;
+        desX = nX - sX;
+        desY = nY - sY;
+        tX += desX * 0.1;
+        tY += desY * 0.1;
+        applyTranform(odrag);
+        sX = nX;
+        sY = nY;
+      };
+
+      document.onpointerup = function (e) {
+        odrag.timer = setInterval(function () {
+          desX *= 0.95;
+          desY *= 0.95;
+          tX += desX * 0.1;
+          tY += desY * 0.1;
+          applyTranform(odrag);
+          playSpin(false);
+          if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+            clearInterval(odrag.timer);
+            playSpin(true);
+          }
+        }, 17);
+        this.onpointermove = this.onpointerup = null;
+      };
+      return false;
+    };
+    document.onmousewheel = function (e) {
+      e = e || window.event;
+      var d = e.wheelDelta / 20 || -e.detail;
+      radius += d;
+      init(1);
+    };
+  }
+
+    
+
+    
   </script>
 <script>
   const form = document.getElementById('form-container');
