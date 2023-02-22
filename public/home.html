@@ -138,11 +138,18 @@
     }
     
       #half-page{
+      font-family: avenir;
+      margin-top: 3rem;
+      padding-top:1rem;
+      color: white;
+      line-height: 1;
+      font-size: 1.3rem;
+      text-align: center;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 20%;
+      height: 15%;
       z-index: 10;
     }
 
@@ -257,19 +264,24 @@
         }
       }
 
-      /* @keyframes fadeOutAnimation {
-        0% {
-          opacity: 1;
-        }
+      #wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
 
-        80% {
-          opacity: 1;
-        }
-
-        100% {
-          opacity: 0;
-        }
-      } */
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
 
       @-webkit-keyframes spinRevert {
         from {
@@ -297,6 +309,7 @@
     @media (min-width: 760px) {
 
     #half-page{
+      display: none;
       position: absolute;
       top: 5rem;
       left: 0;
@@ -409,7 +422,9 @@
     <div id="ground"></div>
   </div>
 
-  <div id="half-page"></div>
+  <div id="half-page">
+    <span id="wave">👉</span> touch here to spin<span id="wave">👈</span> 
+  </div>
 
   <div id="header-container">
     <div id="header">Community is what we make it.</div>
