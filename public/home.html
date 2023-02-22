@@ -39,19 +39,25 @@
       padding: 0;
     }
 
+    html {
+        overscroll-behavior: auto;
+    }
+
     html,
     body {
-      text-align: center;
+      /* text-align: center; */
       height: 100%;
       /* for touch screen */
-      touch-action: pan-y pinch-zoom;
-      justify-content: center;
+      touch-action: pan-y;
+
+
+      /* justify-content: center; */
       
     }
 
+
     body {
- overflow-x: hidden; /* Hide horizontal scrollbar */
-  overflow-y: scroll;
+      overflow-x: hidden; 
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -112,11 +118,12 @@
     }
 
     #ground {
-      width: 900px;
-      height: 900px;
+      width: 30px;
+      height: 30px;
       position: absolute;
+      justify-content: center;
       top: 100%;
-      left: 50%;
+      /* left: 50%; */
       -webkit-transform: translate(-50%, -50%) rotateX(90deg);
       transform: translate(-50%, -50%) rotateX(90deg);
       background: -webkit-radial-gradient(center center,
@@ -141,20 +148,19 @@
     }
     
       #half-page{
-      margin-top: 2rem;
       padding-top:2rem;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 15%;
+      height: 50%;
       z-index: 10;
     }
 
     #hand-emoji {
       font-family: avenir;
-      margin-top: 3rem;
-      padding-top:1rem;
+      padding-top: 10%;
+      padding-bottom:10%;
       color: white;
       line-height: 1;
       font-size: 1.3rem;
@@ -163,7 +169,6 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 15%;
       z-index: 10;
     }
 
@@ -182,6 +187,14 @@
       line-height: 1.6;
     }
 
+    #disclaimer {
+      font-family: avenir;
+      font-size: small;
+      color: white;
+      text-align: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
     #paradise {
         background: linear-gradient(to right, #F684FF, #FB9DB9 , #FFFFB7, #83F890, #75ACFF, #B490FF);
   -webkit-background-clip: text;
@@ -320,6 +333,24 @@
         }
       }
     @media (min-width: 760px) {
+
+      #disclaimer {
+        display: none;
+      }
+
+      #ground {
+      width: 900px;
+      height: 900px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+      transform: translate(-50%, -50%) rotateX(90deg);
+      background: -webkit-radial-gradient(center center,
+          farthest-side,
+          #9993,
+          transparent);
+    }
 
       #hand-emoji{
         display:none;
@@ -461,13 +492,16 @@
     Join Waitlist
   </button>
   <p id="success-message"> Success! Sending good vibes your way soon</p>
-
 </form>
+
+
     <!-- <form id="form-container" action="/api/send-to-google-sheets" method="post">
       <div id="success-message"> Thank you for your interest! The team will be in contact soon </div>
           <input type="email" id="enter-email-input" name="email" placeholder="Email address:" />
           <button id="waitlist-button" type="submit">Join Waitlist</button>
     </form> -->
+
+    <div id="disclaimer">This website works best on desktop</div>
 
   </div>
 
@@ -476,7 +510,12 @@
   <script>
     
     // You can change global variables here:
-    var radius = 240; // how big of the radius
+    if (window.innerWidth > 760) {
+      var radius = 240; // how big of the radius
+    } else {
+      var radius = 180; // how big of the radius
+    }
+
     var autoRotate = true; // auto rotate or not
     var rotateSpeed = -60; // unit: seconds/360 degrees
     var imgWidth = 160; // width of images (unit: px)
@@ -641,42 +680,42 @@
   }
   else {
     console.log("mobile");
-    // document.onpointerdown = function (e) {
-    //   clearInterval(odrag.timer);
-    //   e = e || window.event;
-    //   var sX = e.clientX,
-    //     sY = e.clientY;
+    half.onpointerdown = function (e) {
+      clearInterval(odrag.timer);
+      e = e || window.event;
+      var sX = e.clientX,
+        sY = e.clientY;
 
-    //   document.onpointermove = function (e) {
-    //     e = e || window.event;
-    //     var nX = e.clientX,
-    //       nY = e.clientY;
-    //     desX = nX - sX;
-    //     desY = nY - sY;
-    //     tX += desX * 0.1;
-    //     tY += desY * 0.1;
-    //     applyTranform(odrag);
-    //     sX = nX;
-    //     sY = nY;
-    //   };
+      document.onpointermove = function (e) {
+        e = e || window.event;
+        var nX = e.clientX,
+          nY = e.clientY;
+        desX = nX - sX;
+        desY = nY - sY;
+        tX += desX * 0.1;
+        tY += desY * 0.1;
+        applyTranform(odrag);
+        sX = nX;
+        sY = nY;
+      };
 
-    //   document.onpointerup = function (e) {
-    //     odrag.timer = setInterval(function () {
-    //       desX *= 0.95;
-    //       desY *= 0.95;
-    //       tX += desX * 0.1;
-    //       tY += desY * 0.1;
-    //       applyTranform(odrag);
-    //       playSpin(false);
-    //       if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
-    //         clearInterval(odrag.timer);
-    //         playSpin(true);
-    //       }
-    //     }, 17);
-    //     this.onpointermove = this.onpointerup = null;
-    //   };
-    //   return false;
-    // };
+      document.onpointerup = function (e) {
+        odrag.timer = setInterval(function () {
+          desX *= 0.95;
+          desY *= 0.95;
+          tX += desX * 0.1;
+          tY += desY * 0.1;
+          applyTranform(odrag);
+          playSpin(false);
+          if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+            clearInterval(odrag.timer);
+            playSpin(true);
+          }
+        }, 17);
+        this.onpointermove = this.onpointerup = null;
+      };
+      return false;
+    };
     document.onmousewheel = function (e) {
       e = e || window.event;
       var d = e.wheelDelta / 20 || -e.detail;
