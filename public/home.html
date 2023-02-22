@@ -43,7 +43,7 @@
     body {
       height: 100%;
       /* for touch screen */
-      touch-action: pinch-zoom;
+      touch-action: none;
       
     }
 
@@ -638,7 +638,7 @@
   }
   else {
     console.log("mobile");
-    odrag.onpointerdown = function (e) {
+    document.onpointerdown = function (e) {
       clearInterval(odrag.timer);
       e = e || window.event;
       var sX = e.clientX,
