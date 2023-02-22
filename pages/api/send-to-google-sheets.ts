@@ -112,7 +112,7 @@ async function authorize() {
       resource,
     });
     console.log('%d cells updated.', result.data.updatedCells);
-    return res.redirect(302, "/index.html")
+    return res.redirect(302, "/home.html")
   } catch (err) {
     // TODO (Developer) - Handle exception
     res.status(500)
