@@ -6,15 +6,37 @@ const Home = () => {
   const session = useSession();
   const supabase = useSupabaseClient();
 
+  const customTheme = {
+    // You can also add more theme variations with different names.
+    pink: {
+      colors: {
+        brandButtonText: "white",
+        defaultButtonBackground: "#FF0000",
+        defaultButtonBackgroundHover: "#2e2e2e",
+        //..
+      },
+    },
+    default: {
+      colors: {
+        brandButtonText: "white",
+        defaultButtonBackground: "#1e1e1e",
+        defaultButtonBackgroundHover: "#2e2e2e",
+        //..
+      },
+    },
+  };
   return (
     <div className="container" style={{ padding: "50px 0 100px 0" }}>
       {!session ? (
-        <Auth
-          providers={["google", "github", "linkedin"]}
-          supabaseClient={supabase}
-          appearance={{ theme: ThemeSupa }}
-          theme="dark"
-        />
+        <>
+          <div>Quest</div>
+          <Auth
+            providers={["google", "github", "linkedin"]}
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }}
+            theme="dark"
+          />
+        </>
       ) : (
         <Account session={session} />
       )}
