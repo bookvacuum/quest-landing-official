@@ -1,6 +1,9 @@
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import Account from "../components/Account";
+import styles from "../styles/Home.module.css";
+import Image from "next/image";
+import community from "/public/images/community.png";
 
 const Home = () => {
   const session = useSession();
@@ -26,17 +29,25 @@ const Home = () => {
     },
   };
   return (
-    <div className="container" style={{ padding: "50px 0 100px 0" }}>
+    <div style={{ padding: "0 0 0 0" }}>
       {!session ? (
-        <>
-          <div>Quest</div>
-          <Auth
-            providers={["google", "github", "linkedin"]}
-            supabaseClient={supabase}
-            appearance={{ theme: ThemeSupa }}
-            theme="dark"
+        <div className={styles.container}>
+          <div className={styles.left}>
+            <div>Quest</div>
+            <Auth
+              providers={["google", "github", "linkedin"]}
+              supabaseClient={supabase}
+              appearance={{ theme: ThemeSupa }}
+              theme="dark"
+            />
+          </div>
+          <Image
+            z-index={11}
+            src={community}
+            alt="Picture of the author"
+            className={styles.image}
           />
-        </>
+        </div>
       ) : (
         <Account session={session} />
       )}

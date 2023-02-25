@@ -15,7 +15,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--custom-font-family);
-  background-color: var(--custom-bg-color);
+  background-color: #fffff;
 }
 
 * {
@@ -27,7 +27,7 @@ body {
 html,
 body,
 #__next {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   overflow-x: hidden;
 }
@@ -35,7 +35,7 @@ body,
 /* Grid */
 
 .container {
-  width: 80%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -110,7 +110,7 @@ body,
 @media only screen and (min-width: 33.75em) {
   /* 540px */
   .container {
-    width: 50%;
+    width: 100%;
   }
 }
 
@@ -160,7 +160,7 @@ body,
 @media only screen and (min-width: 60em) {
   /* 960px */
   .container {
-    width: 50%;
+    width: 100%;
     max-width: 60rem;
   }
 }
