@@ -33,13 +33,15 @@ const Home = () => {
       {!session ? (
         <div className={styles.container}>
           <div className={styles.left}>
-            <div>Quest</div>
-            <Auth
-              providers={["google", "github", "linkedin"]}
-              supabaseClient={supabase}
-              appearance={{ theme: ThemeSupa }}
-              theme="dark"
-            />
+            <div className={styles.auth}>
+              <div>Quest</div>
+              <Auth
+                providers={["google", "github", "linkedin"]}
+                supabaseClient={supabase}
+                appearance={{ theme: ThemeSupa }}
+                theme="dark"
+              />
+            </div>
           </div>
           <Image
             z-index={11}

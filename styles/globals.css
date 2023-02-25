@@ -27,8 +27,8 @@ body {
 html,
 body,
 #__next {
-  height: 100%;
-  width: 100vw;
+  height: 70vw;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -44,7 +44,7 @@ body,
   width: 100%;
 }
 .row [class^="col"] {
-  float: left;
+  /* float: left; */
   margin: 0.5rem 2%;
   min-height: 0.125rem;
 }
@@ -290,7 +290,7 @@ button.primary,
   display: flex;
   flex-flow: row;
   border-top: var(--custom-border);
-  background-color: var(--custom-bg-color);
+  background-color: var(--custom-bg-color) !important;
 }
 .footer div {
   padding: var(--custom-spacing);

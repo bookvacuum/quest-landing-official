@@ -12,5 +12,11 @@
 .image {
   position: relative;
   width: 50%;
-  height: 100vh;
+  height: 70vw;
+}
+
+.auth {
+  padding-top: 20%;
+  padding-right: 15%;
+  padding-left: 15%;
 }
