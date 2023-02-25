@@ -1,3 +1,9 @@
+.image {
+  width: 50%;
+  position: relative;
+  height: 100vh;
+}
+
 .container {
   display: flex;
   height: 100%;
@@ -9,15 +15,25 @@
   position: relative;
 }
 
-.image {
-  position: relative;
-  width: 50%;
-  height: 100vh;
-}
-
 .auth {
   height: 100vh;
   padding-top: 20%;
   padding-right: 15%;
   padding-left: 15%;
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .image {
+    display: none;
+  }
+  .left {
+    position: absolute !important;
+    width: 100% !important;
+  }
+  .container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
 }
