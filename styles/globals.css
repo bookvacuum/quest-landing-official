@@ -1,16 +1,16 @@
 html,
 body {
-  --custom-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --custom-bg-color: #fdefff;
+  --custom-font-family: -apple-system, Avenir, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /*--custom-bg-color: #fdefff;
   --custom-panel-color: #ed03f4;
   --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
-  --custom-color: #ed03f4 !important;
-  --custom-color-brand: #ed03f4 !important;
+  --custom-color: "black";
+  --custom-color-brand: #ed03f4;
   --custom-color-secondary: #ed03f4;
   --custom-border: 1px solid #ed03f4;
   --custom-border-radius: 5px;
-  --custom-spacing: 5px;
+  --custom-spacing: 5px; */
 
   padding: 0;
   margin: 0;
@@ -240,7 +240,7 @@ button,
 .button {
   color: var(--custom-color);
   border: var(--custom-border);
-  background-color: #fdefff !important;
+  background-color: #fdefff;
   display: inline-block;
   text-align: center;
   border-radius: var(--custom-border-radius);
@@ -253,7 +253,7 @@ button,
 
 button.primary,
 .button.primary {
-  background-color: #ed03f4 !important;
+  background-color: #ed03f4;
   border: 1px solid var(--custom-color-brand);
 }
 
@@ -290,7 +290,7 @@ button.primary,
   display: flex;
   flex-flow: row;
   border-top: var(--custom-border);
-  background-color: var(--custom-bg-color) !important;
+  background-color: var(--custom-bg-color);
 }
 .footer div {
   padding: var(--custom-spacing);
