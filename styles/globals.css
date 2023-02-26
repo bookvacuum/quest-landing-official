@@ -2,24 +2,12 @@ html,
 body {
   --custom-font-family: -apple-system, Avenir, Roboto, Oxygen, Ubuntu, Cantarell,
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  /*--custom-bg-color: #fdefff;
-  --custom-panel-color: #ed03f4;
-  --custom-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.8);
-  --custom-color: "black";
-  --custom-color-brand: #ed03f4;
-  --custom-color-secondary: #ed03f4;
-  --custom-border: 1px solid #ed03f4;
-  --custom-border-radius: 5px;
-  --custom-spacing: 5px; */
-
   padding: 0;
   margin: 0;
   font-family: var(--custom-font-family);
-  background-color: #fffff;
 }
 
 * {
-  color: var(--custom-color);
   font-family: var(--custom-font-family);
   box-sizing: border-box;
 }
@@ -170,19 +158,15 @@ body,
 label {
   display: block;
   margin: 5px 0;
-  color: var(--custom-color-secondary);
   font-size: 0.8rem;
-  text-transform: uppercase;
 }
 
 input {
   width: 100%;
   border-radius: 5px;
-  border: var(--custom-border);
+  border: "#372F37";
   padding: 8px;
   font-size: 0.9rem;
-  background-color: var(--custom-bg-color);
-  color: var(--custom-color);
 }
 
 input[disabled] {
@@ -238,23 +222,14 @@ input[disabled] {
 
 button,
 .button {
-  color: var(--custom-color);
-  border: var(--custom-border);
-  background-color: #fdefff;
   display: inline-block;
   text-align: center;
   border-radius: var(--custom-border-radius);
   padding: 0.5rem 1rem;
+  margin-bottom: 0.2rem;
   cursor: pointer;
   text-align: center;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-
-button.primary,
-.button.primary {
-  background-color: #ed03f4;
-  border: 1px solid var(--custom-color-brand);
+  font-size: 1rem;
 }
 
 /* Widgets */

@@ -15,7 +15,7 @@ const Home = () => {
         <div className={styles.container}>
           <div className={styles.left}>
             <div className={styles.auth}>
-              <div>Login to Quest</div>
+              <div className={styles.loginHeader}>Login to Quest</div>
               {/* <Auth
                 providers={["google", "github", "linkedin"]}
                 supabaseClient={supabase}
@@ -32,17 +32,17 @@ const Home = () => {
                       colors: {
                         brand: "#ED03F4",
                         brandAccent: "#ED03F4",
-                        defaultButtonBackground: "ED03F4",
-                        defaultButtonBackgroundHover: "#A400A9",
-                        defaultButtonBorder: "lightgray",
-                        defaultButtonText: "gray",
+                        defaultButtonBackground: "transparent",
+                        defaultButtonBackgroundHover: "#F1F1F1",
+                        defaultButtonBorder: "gray",
+                        defaultButtonText: "#372F37",
                         dividerBackground: "#eaeaea",
                         inputBackground: "transparent",
                         inputBorder: "lightgray",
                         inputBorderHover: "gray",
                         inputBorderFocus: "gray",
                         inputText: "black",
-                        inputLabelText: "gray",
+                        inputLabelText: "#372F37",
                         inputPlaceholder: "darkgray",
                         messageText: "gray",
                         anchorTextColor: "gray",
@@ -53,6 +53,17 @@ const Home = () => {
                         buttonFontFamily: "avenir, helvetica, sans-serif",
                         inputFontFamily: "avenir, helvetica, sans-serif",
                         labelFontFamily: "avenir, helvetica, sans-serif",
+                      },
+                      space: {
+                        spaceSmall: "4px",
+                        spaceMedium: "8px",
+                        spaceLarge: "16px",
+                        labelBottomMargin: "8px",
+                        anchorBottomMargin: "4px",
+                        emailInputSpacing: "4px",
+                        socialAuthSpacing: "4px",
+                        buttonPadding: "10px 15px",
+                        inputPadding: "10px 15px",
                       },
                     },
                   },
