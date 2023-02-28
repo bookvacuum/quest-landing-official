@@ -1,0 +1,46 @@
+.image {
+  width: 50%;
+  position: relative;
+  height: 100vh;
+}
+
+.loginHeader {
+  text-align: center;
+  color: "#372F37";
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.left {
+  width: 50%;
+  position: relative;
+}
+
+.auth {
+  height: 100vh;
+  padding-top: 20%;
+  padding-right: 15%;
+  padding-left: 15%;
+}
+
+/* mobile */
+@media (max-width: 760px) {
+  .image {
+    display: none;
+  }
+  .left {
+    position: absolute !important;
+    width: 100% !important;
+  }
+  .container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}

@@ -59,14 +59,14 @@ async function loadSavedCredentialsIfExist() {
  * @return {Promise<void>}
  */
 async function saveCredentials(client: { credentials: { refresh_token: any; }; }) {
-  const content = await fs.readFile(CREDENTIALS_PATH);
+  const content = await fs.readFile(CREDENTIALS_PATH || process.env);
   const keys = JSON.parse(content);
   const key = keys.installed || keys.web;
   const payload = JSON.stringify({
-    type: 'authorized_user',
-    client_id: key.client_id,
-    client_secret: key.client_secret,
-    refresh_token: client.credentials.refresh_token,
+    type: 'authorized_user' || process.env.type,
+    client_id: key.client_id || process.env.client_id,
+    client_secret: key.client_secret || process.env.client_secret,
+    refresh_token: client.credentials.refresh_token || process.env.refresh_token,
   });
   await fs.writeFile(TOKEN_PATH, payload);
 }
@@ -82,7 +82,7 @@ async function authorize() {
   }
   client = await authenticate({
     scopes: SCOPES,
-    keyfilePath: CREDENTIALS_PATH,
+    keyfilePath: CREDENTIALS_PATH || process.env,
   });
   if (client.credentials) {
     await saveCredentials(client);

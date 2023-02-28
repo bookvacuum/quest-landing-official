@@ -39,16 +39,25 @@
       padding: 0;
     }
 
+    html {
+        overscroll-behavior: auto;
+    }
+
     html,
     body {
+      /* text-align: center; */
       height: 100%;
       /* for touch screen */
-      touch-action: none;
+      touch-action: pan-y;
+
+
+      /* justify-content: center; */
       
     }
 
+
     body {
-      /* overflow: hidden; */
+      overflow-x: hidden; 
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -60,6 +69,7 @@
     }
 
     
+  
 
     #drag-container,
     #spin-container {
@@ -80,7 +90,7 @@
       transform-style: preserve-3d;
       position: absolute;
       left: 0;
-      top: -20%;
+      top: -15%;
       width: 100%;
       height: 100%;
       line-height: 200px;
@@ -109,17 +119,42 @@
     }
 
     #ground {
-      width: 900px;
-      height: 900px;
+      width: 30px;
+      height: 30px;
       position: absolute;
+      justify-content: center;
       top: 100%;
-      left: 50%;
+      /* left: 50%; */
       -webkit-transform: translate(-50%, -50%) rotateX(90deg);
       transform: translate(-50%, -50%) rotateX(90deg);
       background: -webkit-radial-gradient(center center,
           farthest-side,
           #9993,
           transparent);
+    }
+
+    #sign-up {
+      font-family: avenir;
+      color: white;
+      font-size: 1rem;
+      padding: 0.8rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      background-color: #ED03F4; 
+      border-radius: 15px;
+      border: none;
+    }
+
+    #sign-in {
+      font-size: 1rem;
+      font-family: avenir;
+      padding: 0.8rem;
+      padding-left: 1.5rem;
+      padding-right: 2.5rem;
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: medium;
     }
 
     #header-container {
@@ -138,29 +173,27 @@
     }
     
       #half-page{
-      margin-top: 2rem;
       padding-top:2rem;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 15%;
+      height: 50%;
       z-index: 10;
     }
 
     #hand-emoji {
       font-family: avenir;
-      margin-top: 3rem;
-      padding-top:1rem;
+      padding-top: 10%;
+      padding-bottom:10%;
       color: white;
       line-height: 1;
       font-size: 1.3rem;
       text-align: center;
       position: absolute;
-      top: 0;
+      top: 0%;
       left: 0;
       width: 100%;
-      height: 15%;
       z-index: 10;
     }
 
@@ -179,6 +212,14 @@
       line-height: 1.6;
     }
 
+    #disclaimer {
+      font-family: avenir;
+      font-size: small;
+      color: white;
+      text-align: center;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
     #paradise {
         background: linear-gradient(to right, #F684FF, #FB9DB9 , #FFFFB7, #83F890, #75ACFF, #B490FF);
   -webkit-background-clip: text;
@@ -316,7 +357,40 @@
           transform: rotateY(0deg);
         }
       }
+
+    @media (max-width: 760px){
+     
+      #sign-in-up {
+      display: none;
+      }
+    }
+
     @media (min-width: 760px) {
+
+    #sign-in-up {
+      z-index: 10;
+      position: absolute;
+      top: 5%;
+      right: 5%;
+    }
+
+      #disclaimer {
+        display: none;
+      }
+
+      #ground {
+      width: 900px;
+      height: 900px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+      transform: translate(-50%, -50%) rotateX(90deg);
+      background: -webkit-radial-gradient(center center,
+          farthest-side,
+          #9993,
+          transparent);
+    }
 
       #hand-emoji{
         display:none;
@@ -445,6 +519,18 @@
   <div id="half-page">
   </div>
 
+
+  <div id="sign-in-up">
+    <button id="sign-in" type="button" onclick="location.href='login'">
+      sign in
+    </button>
+  <button id="sign-up" type="button" onclick="location.href='login'">
+    sign up
+  </button>
+  </div>
+
+
+
   <div id="header-container">
     <div id="header">Community is what we make it.</div>
     <div id="header">Let’s make it a <span id="paradise">paradise.</span></div>
@@ -458,13 +544,16 @@
     Join Waitlist
   </button>
   <p id="success-message"> Success! Sending good vibes your way soon</p>
-
 </form>
+
+
     <!-- <form id="form-container" action="/api/send-to-google-sheets" method="post">
       <div id="success-message"> Thank you for your interest! The team will be in contact soon </div>
           <input type="email" id="enter-email-input" name="email" placeholder="Email address:" />
           <button id="waitlist-button" type="submit">Join Waitlist</button>
     </form> -->
+
+    <div id="disclaimer">This website works best on desktop</div>
 
   </div>
 
@@ -473,7 +562,12 @@
   <script>
     
     // You can change global variables here:
-    var radius = 240; // how big of the radius
+    if (window.innerWidth > 760) {
+      var radius = 240; // how big of the radius
+    } else {
+      var radius = 180; // how big of the radius
+    }
+
     var autoRotate = true; // auto rotate or not
     var rotateSpeed = -60; // unit: seconds/360 degrees
     var imgWidth = 160; // width of images (unit: px)
