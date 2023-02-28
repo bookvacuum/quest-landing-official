@@ -4,6 +4,7 @@ import Account from "../components/Account";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import community from "/public/images/community.png";
+import Dashboard from "../pages/dashboard"
 
 const Home = () => {
   const session = useSession();
@@ -79,7 +80,7 @@ const Home = () => {
           />
         </div>
       ) : (
-        <Account session={session} />
+        <Dashboard session={session}/>
       )}
     </div>
   );
