@@ -13,10 +13,9 @@ export default function Dashboard({session}) {
       </Head>
       <div>
         <h1>Dashboard</h1>
-        // commenting out settings for now 
         {/* <p> Settings </p>
         <Account session={session}/> */}
-            
+        <a href="/justice-pot"> Justice Pot</a>
       </div>
 
     </>
