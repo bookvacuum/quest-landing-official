@@ -3,56 +3,81 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from 'styles/stories.module.css'
 import ReactMarkdown from 'react-markdown'
+import CorroboratorCard from '../../components/CorroboratorCard'
+import cardStyles from "styles/CorroboratorCard.module.css"
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+     
+
   return (
-    <>
+<>
       <Head>
         <title>Sunwoo's Story</title>
       </Head>
       
       <div className={styles.container}>
-        <h1> I raised 1 mil+ and left my startup 4 months later. Here’s what happened.
-</h1>
 
-        <ReactMarkdown>
-A few weeks ago, I left the startup where I was the CEO and cofounder. The startup had raised a party round with big name investors just 4 months ago. I still get inquiries from folks in the industry and investors who are excited about the company, and it’s been a dilemma how forthcoming I can be about what happened since the company is still going on. I’ve always wanted to tell the full story of what happened, but I worry about the reaction from the two co-founders who remain in the company and from investors who still support the company. I decided to share the raw version of the story in this community with the hope that this can help anyone dealing with a situation similar to mine. Buckle up for a wild story.  
+        <div className={styles.flexColumn}>
+        <h1> I raised 1 mil+ and left my startup 4 months later. Here’s what happened.</h1>
 
-The story is long. If you want to read the TLDRs and scroll down to lessons learned that’s fine too. 
+     <p> A few weeks ago, I left the startup where I was the CEO and cofounder. The startup had raised a party round with big name investors just 4 months ago. I still get inquiries from folks in the industry and investors who are excited about the company, and it’s been a dilemma how forthcoming I can be about what happened since the company is still going on. </p>
+     
+<p>I’ve always wanted to tell the full story of what happened, but I worry about the reaction from the two co-founders who remain in the company and from investors who still support the company. I decided to share the raw version of the story in this community with the hope that this can help anyone dealing with a situation similar to mine. Buckle up for a wild story. 
+The story is long. If you want to read the <a href="#tldr">TLDRs</a> and scroll down to lessons learned that’s fine too. 
+</p>
 
-**Context** 
+<p>
+I was the only full time cofounder of a startup that was formed in late April. Almost immediately after formation, we went out to raise our pre-seed. The market was starting to affect pre-seed rounds as well, but during the next 2-3 months, we raised over 1mil at >= 10mil  valuation with some major institutional investors and angels. We had a relatively smooth experience fundraising pre-revenue, pre-product because we were riding off the wave of a new trend in the industry. 
+<p> I signed business agreements with two big publicly traded companies, we had several non-paying customers, and importantly, because the founding team had accolades, experiences, school degrees, and connections that were typically considered top notch in the startup/venture world. 
+</p>
+During the whole time, my two co-founders, I’ll call them Kelly and Kevin, had full time jobs. Kelly was still in the middle of their PhD working at labs (not just one but two for some time), and Kevin was a senior engineer at one of the most successful “startups” out there. Needless to mention, we were operating completely remotely and asynchronously other than 2 weekly team meetings. To top it all off, 1) the equity split was completely even among the founders 2) all three founders were on the board, and 3. the two part-time co-founders wanted to pay themselves a salary only 20K lower than mine.
 
-
-**TLDR: I was the only full time CEO/co-founder of a startup that is operating async, all remote, with even equity split. My two-part time co-founders made it seem like they’ll be joining soon but actually had no intention to. There were many complications with them being part-time. On top of this, I faced a lot of resistance making the shots, and one of the co-founders had serious temper issues that the third co-founder did nothing about because this unusual arrangement allowed the two of them to preserve their full time ambitions while running a venture-backed startup at my expense.**
-
-I was the only full time cofounder of a startup that was formed in late April. Almost immediately after formation, we went out to raise our pre-seed. The market was starting to affect pre-seed rounds as well, but during the next 2-3 months, we raised over 1mil at >= 10mil  valuation with some major institutional investors and angels. We had a relatively smooth experience fundraising pre-revenue, pre-product because we were riding off the wave of a new trend in the industry, I signed business agreements with two big publicly traded companies, we had several non-paying customers, and importantly, because the founding team had accolades, experiences, school degrees, and connections that were typically considered top notch in the startup/venture world. 
-
-During the whole time, my two co-founders, I’ll call them Kelly and Kevin, had full time jobs. Kelly was still in the middle of their PhD working at labs (not just one but two for some time), and Kevin was a senior engineer at one of the most successful “startups” out there. Needless to mention, we were operating completely remotely and asynchronously other than 2 weekly team meetings. To top it all off, 1) the equity split was completely even among the founders 2) all three founders were on the board, and 3) the two part-time co-founders wanted to pay themselves a salary only 20K lower than mine.
-
+</p>
 In the beginning, I was okay with the arrangement because Kelly was initially spending the full time equivalent on this startup. Moreover, there was not much engineering work to be done at the beginning, and Kevin told us he is waiting for the cliff to hit later this year. I was happy to pay them a salary to make them feel appreciated and responsible for the work they are doing for the startup. 
 
-Just like our investors, I believed in the team. My co-founders had stellar track records and there is no doubt that they have expertise in their respective domains. I believed that my co-founders were capable and ambitious, and that they would do what is best for the company, objectively. I also understood that it’s hard to abandon their celebrated full time roles for a startup that just started. I assumed, wrongly, that once fundraising was done and the company had stabilized, they would seriously consider joining full time.
+Just like our investors, I believed in the team.
 
-On May 17, early on in the fundraise, I brought up to my cofounders my worries about them being part-time after talking to a friend/investor who expressed concern about the arrangement from both the perspectives of friend and investor. Kelly did not react well. She said bringing this up has irrevocable implications. Offended that a potential investor may have planted ideas in me that would make me question the arrangement, she ended the call abruptly. Taken aback by her lashing out, I ended up sending an apology to her to avoid co-founder conflict so early on. Kevin was more receptive to discussing the matter and even messaged me after the meeting that “it wasn’t fair to take it out on you.” But he also provided no timeline. In fact, he told us during the call that this is not the first time he’s worked multiple engineering jobs at the same time, and that working multiple jobs simultaneously actually makes him a better engineer. He said it’s nobody’s business if you work 2 or 5 jobs, as long as you do what needs to be done. This experience already instilled a fear in me that even a mention of commitment levels would lead to conflict.
+
+<p> My co-founders had stellar track records and there is no doubt that they have expertise in their respective domains. I believed that my co-founders were capable and ambitious, and that they would do what is best for the company, objectively. I also understood that it’s hard to abandon their celebrated full time roles for a startup that just started. I assumed, wrongly, that once fundraising was done and the company had stabilized, they would seriously consider joining full time.
+</p>
+
+On May 17, early on in the fundraise, I brought up to my cofounders my worries about them being part-time after talking to a friend/investor who expressed concern about the arrangement from both the perspectives of friend and investor. Kelly did not react well. She said bringing this up has irrevocable implications.
+
+<p> Offended that a potential investor may have planted ideas in me that would make me question the arrangement, she ended the call abruptly. Taken aback by her lashing out, I ended up sending an apology to her to avoid co-founder conflict so early on. Kevin was more receptive to discussing the matter and even messaged me after the meeting that “it wasn’t fair to take it out on you.” But he also provided no timeline. In fact, he told us during the call that this is not the first time he’s worked multiple engineering jobs at the same time, and that working multiple jobs simultaneously actually makes him a better engineer. He said it’s nobody’s business if you work 2 or 5 jobs, as long as you do what needs to be done. This experience already instilled a fear in me that even a mention of commitment levels would lead to conflict.
+</p>
 
 There were a lot of wins during this time in terms of response from non-paying customers, investors, and our MVP. Out of fear that I’d be obstructing our progress if I pressure my cofounders about their commitment levels even further, I made the costly error of brushing this matter aside. I decided to focus on what I can control, growing the company to the best of my ability.
 
+<p>
 During the next 6 months of course, there were many complications associated with my co-founders still keeping their full time jobs. For example, I would feel that our product development was a bit too slow for an early stage startup despite having a diligent full time product designer. Even Kelly would get worried that Kevin’s calls on product/engineering were biased towards keeping his full time job. Is he insisting on a no code solution because it was genuinely a better, more efficient choice for the company, or because he simply didn’t have enough time to build?
+</p>
 
+<p>
 Kelly and Kevin were most definitely not spending the full time equivalent on this startup as they’ve been telling me and investors. More importantly, it became clear that they prioritized their day time jobs more than the startup. 
+</p>
 
 I soon found out that Kelly and Kevin haven’t even reported their second gig (our startup) to their full-time employers. (Even though Kevin was required to by his employer, he didn’t, most likely because of his ambitions of getting promoted). They would not even list our company on their personal Linkedins, and avoided doing anything that could potentially cause their employers to find out about their second gig even if that could help the startup. Kelly was telling me and the investors that she’s “wrapping up” her PhD, and when I asked her why she cannot take a leave, she told me that her lab data would expire and render her research meaningless…
 
+<p>
 Even though we had a good amount of runway and decent traction, I started to worry how the hell I’m going to raise the next round with my co-founders who are still part-time. I was the only face and name publicly associated with the company, and as CEO, I would take full blame and responsibility if anything went wrong. 
-
+</p>
 Once the fundraising wrapped up, it also became apparent that Kelly and I had disagreements about the direction of the company while Kevin had close to zero opinions. And we couldn’t stop clashing. We’d look at the same metrics and arrive at different conclusions on how to proceed. Separation of roles was also not working either. I was the full time CEO but I couldn’t even ask Kelly how things were going without her barking that I’m micromanaging her. But she would casually just propose to scrap my entire domain or criticize my marketing, another domain of mine.
 
-Most importantly, she just couldn’t let me make the business call. Since day 1 of forming a team, Kelly had been dead set on the problem we are solving and the solution (a marketplace). I did not think that that was the right/best solution to pursue based on the learnings I gathered while running the company full time. Nobody could be 100% sure what was right, but in my view, I had spent the most time marketing, selling, talking and thinking about the company. Since I was undertaking the responsibility and commitment of a full time CEO, I believed that I was warranted to make the call on this matter at the very least. 
+<p>
+Most importantly, she just couldn’t let me make the business call.
+</p>
+
+<p> Since day 1 of forming a team, Kelly had been dead set on the problem we are solving and the solution (a marketplace). I did not think that that was the right/best solution to pursue based on the learnings I gathered while running the company full time. Nobody could be 100% sure what was right, but in my view, I had spent the most time marketing, selling, talking and thinking about the company. Since I was undertaking the responsibility and commitment of a full time CEO, I believed that I was warranted to make the call on this matter at the very least. 
+
+<p>
 
 I tried to convince the team including Kelly by gathering the materials that led me to my conviction: coded needfinding interviews, email correspondences during sales, a list of lost deals and their reasons, and even insights from our investors that I agreed with (this was in the hopes that she’d value their opinions if she didn’t value mine). During team meetings, I became more vocal about my views on how to proceed. Kelly would become increasingly aggressive as she felt that I’m questioning her day 1 conviction. On October 10, soon after I put my foot down on determining what’s next for the company and had separate conversations with Kevin and our employee checking in about the company direction, she exploded at me. (The specific trigger was that I only liked a tweet mentioning our company even though she thought it needed to be retweeted.) These are her exact words posted on the founder chat minutes apart that day.  
+</p>
 
+<b>
 “I don’t want to deal with your new directions every other week but we are a marketplace do you want to make money or not” 
 
 “Fuck this shit, stop listening to investors”
@@ -60,57 +85,105 @@ I tried to convince the team including Kelly by gathering the materials that led
 “Can you please fire me? Working with you is so miserable It really is” 
 
 “I WANT OUT” 
+</b>
+
+</p>
+
+
 
 She added that she would not come to the meetings that day and instead will be deciding whether to remain in the company after discussions with investors. 
+<p>
 
 If this was a one off instance, I would have wanted to work it out. But her anger issues had been a pattern. 
+</p>
+Among countless instances, on June 11, not even 2 months into formation, in the middle of fundraising and providing investors with our captable, she called me and proposed cutting my equity. (That it’d look absurd if the single full time cofounder/CEO’s equity went below 33% as an afterthought…) 
 
-Among countless instances, on June 11, not even 2 months into formation, in the middle of fundraising and providing investors with our captable, she called me and proposed cutting my equity. (That it’d look absurd if the single full time cofounder/CEO’s equity went below 33% as an afterthought…) This was apparently because I wasn’t organized enough for her when she’d call me in the evenings after her day job. She said Kevin would probably agree with re-discussing our equity split. 
+<p>This was apparently because I wasn’t organized enough for her when she’d call me in the evenings after her day job. She said Kevin would probably agree with re-discussing our equity split. </p>
 
 When I texted Kevin what she proposed, his immediate response was, “that’s crazy” 
+<p>
 
+<b>
 “Disengage for now…not sure what’s got into her. For the record I don’t see any reason to cut your equity. That’s a rash and nonsensical thing to suggest”
+</b>
+</p>
 
-In another instance, she screamed at me during a call in the presence of our employee because she mistakenly thought I was trying to build some other product when all I was suggesting was that we could build an _integration_ with that product. I had to teach her what integrations and APIs were to calm her down and explain myself. 
+<b>In another instance, she screamed at me during a call in the presence of our employee because she mistakenly thought I was trying to build some other product when all I was suggesting was that we could build an _integration_ with that product. I had to teach her what integrations and APIs were to calm her down and explain myself. </b>
 
+<p>
 By this point in time, I had already started to develop serious anxiety due to how erratic and verbally aggressive Kelly was. I became fearful that I’d make any mistake and get verbally abused by Kelly. As abusers do, Kelly would exploit the fearful impact she’d have on me when she’d say or do something erratic and aggressive. Kevin always admitted that Kelly was “unprofessional” “uncool” and “needs to be more patient” privately, but did nothing about it other than telling me that it’s one of those things I cannot control or change about a person.
+</p>
 
+<p>
 On September 27, I wrote to my co-founders about feeling burdened as a solo full time founder, which led to an altercation, and Kelly became extremely aggressive again, word vomiting in all caps. Kevin messaged me privately, “just stop talking, tomorrow we move on and pretend this never happened.” I ended up apologizing to Kelly that night, really out of fear. She never responded back or acknowledged my apology to this day. 
+</p>
 
+
+<p>
 There is so much more I could share–stories on stories of unreasonable aggression. These were methods of silencing me from bringing up the elephant in the room–that this unusual arrangement I had initially agreed to was not good for me, not good for the company. The one thing I really want to say is that I tried (a little too much). I tried to work around my two part time co-founders–one passive, one aggressive–united by their desire to build a venture backed startup while sustaining their full time ambitions, which could only be possible at my expense.
+</p>
 
+
+<p>
 In the meantime, I was experiencing cognitive dissonance: we made more progress on the product, we were generating revenue, and I was the biggest champion of my company and team, but I didn’t think this was sustainable for the company or for myself. 
+</p>
 
+<p>
 After Kelly threatened to leave the company on October 10, I decided that that was the last straw. The next day, I told Kelly and Kevin that I will be leaving the company. 
 
+</p>
 I did consider kicking both of them out. I decided against it, however, because I felt that the early investors would always be on Kelly’s side. 
 
-**After decision to leave**
+<h3>
+After I decided to leave</h3>
 
 It gets worse. 
 
-**TLDR: They reject my proposal for a smoother transition, I leave the company with basically nothing, they lie to others that I’m leaving the company to go to grad school, they threaten me saying they won’t pay my final paycheck, they violate the law–and actually not pay my final paycheck–and they tell me to “go fuck yourself” when I ask for my final paycheck. I am paid finally after consulting 3 attorneys and sharing with two investors.**
+<p id="tldr">
+TLDR: <b>They reject my proposal for a smoother transition, I leave the company with basically nothing, they lie to others that I’m leaving the company to go to grad school, they threaten me saying they won’t pay my final paycheck, they violate the law–and actually not pay my final paycheck–and they tell me to “go fuck yourself” when I ask for my final paycheck. I am paid finally after consulting 3 attorneys and sharing with two investors.</b>
+</p>
 
+<p>
 My co-founders told me that they’ll keep going on with the company. (They still think they can make it work as part-time co-founders.) The company did feel like my baby, and I wanted to wrap up amicably. 
+</p>
 
+<p>
 On October 11, I wrote to my co-founders that since the departure of the only full time co-founder/CEO is pretty damaging for an early stage startup, I propose that we do a gradual transition with the following conditions. 1) “I will leave basically anytime you want me as CEO, granted we have enough time for at least the account handover” 2) I will take a substantial role as an advisor of the company with 4% equity (equivalent to waiving cliff) and no monetary compensation 3) I will support the company on the sidelines however much they’d like me to be involved with 4) I recommend we only announce the transition in leadership after we find another full time CEO and 5) we sign a standard exit agreement with all the usual non-competition clause so on and so forth.
+
+</p>
 
 Kelly thought most of these terms were actually extremely reasonable. 
 
+<p>
+        <b>
 But Kevin wrote back, “whoever wants to leave can leave, but no accelerated vesting since your departure is voluntary on your part.” 
+
+</b></p>
 
 Even when Kelly said she may leave, Kevin said he was against giving her any equity or compensation as an exit package. It was an ideological matter for him. (I suspect it’s because he was an early employee at a stingy startup where an employee could never dream of receiving an exit package for voluntary departure.) 
 
+<p>
 Kevin was right that the one year cliff did not hit yet and that for employees, quitting usually leaves you with nothing. But logically, what was best for the company was that the ex-CEO/co-founder still had stakes in the company. If I were an advisor with stakes in the company, I wouldn’t be awkwardly writing back to investors still reaching out to me about the startup like this: “Hi Nick! Thanks for reaching out. I actually left [company name] 2 weeks ago due to my co-founders still being part-time (I was the only full time cofounder). The company is still going on from what I know.” 
+</p>
 
-I told them I’m happy to compromise for 1%. Kevin asks, “help me understand - how does giving you 1% help the company?” He said he couldn’t help but take it personally if I am coming from this kind of “entitlement.” 
+I told them I’m happy to compromise for 1%.
 
+<p><b>Kevin asks, “help me understand - how does giving you 1% help the company?” He said he couldn’t help but take it personally if I am coming from this kind of “entitlement.” 
+   </b>     </p>
+
+<p>
 I tried to convince him but to no avail. 
+</p>
+
+<p>
 
 Kevin told me that, “from where I’m coming from, if anything you owe this company by fulfilling your final duty and asking nothing more in return…I want to be very very clear about this - I do not want you to leave, and never have. From what I can tell, nobody in this company wanted you to leave…As such, your departure has created sadness and frustration” 
 
 Kelly added, “the company has done a lot for your career. You got a lot more out of it than salary already” 
 
+</p>
+
+<p>
 Ultimately, I took the most they could give–0.1 nominal stake–and we agreed on Oct 21 to be my last day as CEO. I had no reason to take on a substantial advisor role or do a slow transition. 
 
 A number of things happen next.
@@ -119,43 +192,82 @@ First, a mutual acquaintance texted me congratulating me for getting into grad s
 
 “Kelly said you were leaving [startup] for grad school?” 
 
+</p>
+
 That was not the reason. Obviously. 
+
+<p>
 
 (When I confronted Kelly about this, Kelly responded, “I told them that you might go to grad school and is pursuing other passion, which is_ less of a lie_”)
 
+</p>
+
+<p>
 I feared that Kelly was spreading lies so I decided to accelerate the announcement to our investors. Against Kelly’s wishes that I write that I’m leaving “since my professional goals and interests have changed since joining the company,” I sent an email to investors plainly stating that I am leaving due to “differences in commitment and differences in direction.” I thanked them for their support, talked about the progress we made so far, and let them know the company is going on and that the remaining co-founders will be following up about a new CEO.
+</p>
+
 
 Luckily, all of those who responded were understanding and diplomatic. 
 
-I cooperated with the ip handover. But on the very last day at the company, I didn’t feel like giving away my password for my work email because I did not feel comfortable knowing that Kelly’s been lying. I told the team that I transferred google workspace ownership so they can simply deactivate and redirect my account as any employer does. 
+<p>
+I cooperated with the IP handover. But on the very last day at the company, I didn’t feel like giving away my password for my work email because I did not feel comfortable knowing that Kelly’s been lying. I told the team that I transferred google workspace ownership so they can simply deactivate and redirect my account as any employer does. 
+</p>
 
+<p>
 Instantly, Kevin calls me and tries to convince me to make his life easier by giving him my password. Until this point, superficially at least, Kevin and I had been on relatively good terms. He demands that I give him this shortcut, or else he’ll have to go explain this to Kelly, and he’ll be pushed to withhold my final paycheck. I asked, “Are you telling me you are afraid of Kelly?” He explodes and screams on the call about how he has no time for this and how incompetent I am for not being able to do this simple thing. I’ve never heard him lose it like this. I tell him bluntly, “This is not okay. I’ve never been unprofessional with you, ever.”  
 
-After the call, I write, “What you threatened me with on the call is strictly illegal and I will be taking legal action if my final paycheck is withheld for any unjust reason.” 
+</p>
 
+<p>After the call, I write, “What you threatened me with on the call is strictly illegal and I will be taking legal action if my final paycheck is withheld for any unjust reason.” 
+</p>
+
+<b>
 Kevin responds, “Yeah sue me”
+</b>
+
+<p>
 
 Technically, by California law, since I gave them early notice, I should have been paid all my wages that day, at the time of my quitting. The company also owed me reimbursement for a trip I made for work. 
 
 I got nothing that day, which was already a violation of the law. Instead, they sent me an exit agreement to my personal email.
+</p>
 
+<p>
 The exit agreement said that for 4K, I release all my claims to sue, agree that the company owes me nothing else, agree to the non-compete clause, etc. 
 
+</p>
+
+<p>
 It simply did not make sense for me to sign this because it didn’t even make it clear that this 4K was inclusive of my final paycheck. 
 
+<b>
 The next day and the next next day came. Still no final paycheck.  
+</b>
+</p>
 
+<p>
 I was in shock that my co-founders were not shying away from making it obvious that all of this was intentional and not just a mistake or delay. (intentionally withholding final paycheck could lead to double penalty in California). 
+</p> 
 
+<p> 
 I consulted 3 attorneys during the next few days who all said the same thing, basically that I have no reason to sign anything, this is illegal, and I should demand for my final paycheck first. One attorney very clearly corrected me when I said this was “unacceptable.” She legit said, “bruh, not just unacceptable, it’s _illegal_” 
+</p>
 
+<p>
 On October 25, I sent an email to Kelly and Kevin through my personal email. Here’s the entire correspondence, word for word. 
+</p> 
 
+<p>
 Me: “I am informing you that I have not received my final paycheck as well as reimbursement for transportation to a company event. I have already notified you of these payments on October 21. I am legally entitled to these payments now, and demand that you pay all that is legally owed to me. I will use legal avenues as necessary to make sure I receive these payments. ” 
+</p>
 
+<p>
 Kevin responds from his work email,
+</p>
 
+<p>
 “Dismissal payroll was ran on your last day. Between now and then, only 1 business day has passed. Bank transfer takes 2-3 business days. Nothing we can do to speed that up so please stop wasting my time with these emails” 
+</p>
 
 I ask, “in Gusto's website on dismissal payrolls, it says ‘Your employee will see this paystub in their Gusto account one day after their dismissal date.’ I do not see the paystub in my Gusto account. Can you check why this is?”  
 
@@ -278,7 +390,7 @@ It also turns out that Kelly has been seriously exaggerating their previous expe
 
         For example, take the lesson, ‘pivots and iterations are seminal to early stage startup building.’ Unfortunately, incentive structures in academia can discourage pivots and iterations. Don’t let hubris related to having an advanced degree and technical depth discourage you from taking basic startup lessons. Go watch a few YCs videos. Go watch videos on UX design processes. Go read _Zero to One_, _The Lean Startup_… There are a lot of resources out there but it’s easy to think you are too experienced for that.  
 
-9. **Work with good people. Don’t compromise on this! This includes co-founders, employees, investors, attorneys etc etc. **
+9. **Work with good people. Don’t compromise on this! This includes co-founders, employees, investors, attorneys etc etc.**
 
         Seriously. It’s worth it. Toxic people and environments breed other toxic people. 
 
@@ -296,10 +408,10 @@ It also turns out that Kelly has been seriously exaggerating their previous expe
 
 10. **Ego ruins everything.**
 
-        Plus, ego breeds ego. Is your company culture one where your coworkers make you feel defensive and you have to grow an ego to protect yourself? Or is it one that embraces learning and growth? Ask yourself these questions.  */}
+        Plus, ego breeds ego. Is your company culture one where your coworkers make you feel defensive and you have to grow an ego to protect yourself? Or is it one that embraces learning and growth? Ask yourself these questions. 
+        </div>
+        <CorroboratorCard style={cardStyles.rightContainer} userIcon={"/images/cat.jpeg"} verificationText={"Second Source at Cromatic"} timestamp={"10 minutes ago"} comment={"I was there when it happened."}/>
 
-</ReactMarkdown>
-        
       </div>
     </>
   )

@@ -1,5 +1,22 @@
+
 .container {
-    padding-top:5rem;
-    padding-left: 20rem;
-    padding-right: 20rem;
+    display: flex;
+    flex-direction: row;
+    padding-top:3rem;
+    padding-left: 2rem;
+    padding-right:2rem;
+}
+
+@media(min-width:760px) {
+    .container {
+        
+        padding-top:5rem;
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
 }
