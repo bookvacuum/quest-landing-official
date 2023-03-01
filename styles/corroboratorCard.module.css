@@ -1,9 +1,7 @@
 .rightContainer {
     width: fit-content;
     padding: 1rem;
-    height: 5rem;
     position: relative;
-    top: 30rem;
     right: 0rem;
 }
 

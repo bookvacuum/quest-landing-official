@@ -1,11 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from 'styles/stories.module.css'
-import ReactMarkdown from 'react-markdown'
 import CorroboratorCard from '../../components/CorroboratorCard'
 import cardStyles from "styles/CorroboratorCard.module.css"
-import Link from 'next/link'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -26,6 +23,7 @@ export default function Home() {
 <strong>I raised 1 mil+ and left my startup 4 months later. Here’s what
 happened. </strong>
 </h1>
+<h4> Story from former CEO of Cromatic Sunwoo Lee, corroborated by 3 additional verified sources</h4>
 <p>
 A few weeks ago, I left the startup where I was the CEO and cofounder. The
 startup had raised a party round with big name investors just 4 months ago. I
@@ -450,10 +448,11 @@ It also turns out that Kelly has been seriously exaggerating their previous expe
 </li>
 
 </ol>
-
         </div>
+        <div className={styles.flexColumn}>
         <CorroboratorCard style={cardStyles.rightContainer} userIcon={"/images/cat.jpeg"} verificationText={"Second Source at Cromatic"} timestamp={"10 minutes ago"} comment={"I was there when it happened."}/>
-
+        <CorroboratorCard style={cardStyles.rightContainer} userIcon={"/images/cat.jpeg"} verificationText={"Roommate"} timestamp={"10 minutes ago"} comment={"I could hear someone yelling at Sunwoo when she was working, and on one occasion when we were coworking together, the cofounders were both late, camera off."}/>
+        </div>
       </div>
     </>
   )
