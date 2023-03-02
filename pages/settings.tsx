@@ -3,13 +3,12 @@ import Account from "../components/Account";
 import Profile from "../components/Profile";
 import styles from "../styles/dashboard.module.css";
 import Link from "next/link";
-import Settings from "../pages/settings";
 
-export default function Dashboard({ session }) {
+export default function Settings({ session }) {
   return (
     <>
       <Head>
-        <title>Quest Dashboard</title>
+        <title>Quest Settings</title>
       </Head>
 
       <div className={styles.container}>
@@ -19,6 +18,8 @@ export default function Dashboard({ session }) {
         </Link>
         <h1>Dashboard</h1>
 
+        <p> Settings </p>
+        <Account session={session} />
         {/* <Profile session={session} /> */}
         <a href="/justice-pot"> Justice Pot</a>
       </div>
