@@ -33,7 +33,7 @@ export default function Account({ session }) {
         setAvatarUrl(data.avatar_url)
       }
     } catch (error) {
-      alert('Error loading user data!')
+      alert('Error loading user account data!')
       console.log(error)
     } finally {
       setLoading(false)
@@ -65,10 +65,10 @@ export default function Account({ session }) {
 
   return (
     <div className="form-widget">
-      <div>
+      {/* <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={session.user.email} disabled />
-      </div>
+        <input id="email" type="text" value={username} disabled />
+      </div> */}
       <div>
         <label htmlFor="username">Username</label>
         <input

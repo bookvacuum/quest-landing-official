@@ -1,13 +1,18 @@
 import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import {
+  useSession,
+  useSupabaseClient,
+  useUser,
+} from "@supabase/auth-helpers-react";
 import Account from "../components/Account";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import community from "/public/images/community.png";
-import Dashboard from "../pages/dashboard"
+import Dashboard from "../pages/dashboard";
 
 const Home = () => {
   const session = useSession();
+  const user = useUser();
   const supabase = useSupabaseClient();
 
   return (
@@ -80,7 +85,7 @@ const Home = () => {
           />
         </div>
       ) : (
-        <Dashboard session={session}/>
+        <Dashboard session={session} />
       )}
     </div>
   );
