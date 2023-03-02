@@ -19,7 +19,6 @@ export default function Dashboard({ session }) {
         </Link>
         <h1>Dashboard</h1>
 
-        <Account session={session} />
         <a href="/justice-pot"> Justice Pot</a>
       </div>
     </>

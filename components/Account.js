@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useUser, useSupabaseClient, useSession } from '@supabase/auth-helpers-react'
+
 
 export default function Account({ session }) {
   const supabase = useSupabaseClient()
@@ -10,7 +11,9 @@ export default function Account({ session }) {
   const [avatar_url, setAvatarUrl] = useState(null)
 
   useEffect(() => {
-    getProfile()
+    if(session) {
+      getProfile()
+    }
   }, [session])
 
   async function getProfile() {
@@ -65,10 +68,10 @@ export default function Account({ session }) {
 
   return (
     <div className="form-widget">
-      {/* <div>
+      <div>
         <label htmlFor="email">Email</label>
-        <input id="email" type="text" value={username} disabled />
-      </div> */}
+        {/* <input id="email" type="text" value={session ? session.user : ""} disabled /> */}
+      </div> 
       <div>
         <label htmlFor="username">Username</label>
         <input
