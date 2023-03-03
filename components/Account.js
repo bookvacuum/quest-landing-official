@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient, useSession } from '@supabase/auth-helpers-react'
-
-
 export default function Account({ session }) {
   const supabase = useSupabaseClient()
   const user = useUser()
@@ -70,7 +68,7 @@ export default function Account({ session }) {
     <div className="form-widget">
       <div>
         <label htmlFor="email">Email</label>
-        {/* <input id="email" type="text" value={session ? session.user : ""} disabled /> */}
+        <input id="email" type="text" value={session.user.email} disabled />
       </div> 
       <div>
         <label htmlFor="username">Username</label>
