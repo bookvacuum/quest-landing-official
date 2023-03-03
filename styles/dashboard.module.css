@@ -1,6 +1,8 @@
 .container {
   position: relative;
   width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .settings {
@@ -14,7 +16,15 @@
 }
 
 .header {
+  position: absolute;
+  top: 0;
+  width: 100%;
   background-color: black;
   height: 5rem;
   text-align: center;
+}
+
+.projectRow {
+  display: flex;
+  flex-direction: row;
 }

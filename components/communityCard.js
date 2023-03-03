@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import styles from "../styles/communityCard.module.css"
 
 
@@ -7,14 +8,14 @@ import styles from "../styles/communityCard.module.css"
  * with the CSS for the card container as a component.
  */
 
-const QuestCard = ({ cardName, logoImage, description, buttonText}) => {
+const QuestCard = ({ cardName, logoImage, description}) => {
 
 
   return (
-    <div className={cardName}>
-        <img src={logoImage} className={styles.logoImage} />
+    <div className={styles.card}>
+        <img src={logoImage} width={200} height={200}/>
+        <h2>{cardName}</h2>
         <p>{description}</p>
-        <button>{buttonText}</button>
     </div>
   );
 };
