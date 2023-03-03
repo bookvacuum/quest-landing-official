@@ -17,7 +17,10 @@ export default function Settings() {
 
     {!session ? 
     (
+      <>
       <p>login ok?</p>
+      <Link href="/login"> Login here </Link>
+      </>
     )
   : (<Account session={session}></Account>)}
 
