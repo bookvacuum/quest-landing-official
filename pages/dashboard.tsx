@@ -15,6 +15,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function Dashboard({ session }) {
   const [communityNames, setCommunityNames] = useState(null);
+  const [communities, setMyCommunities] = useState(null);
   const [loading, setLoading] = useState(null);
 
   useEffect(() => {
@@ -40,44 +41,106 @@ export default function Dashboard({ session }) {
     }
   }
 
+  //  async function getMyCommunities(session) {
+  //    try {
+  //      setLoading(true);
+  //      const { data, error, status } = await supabase
+  //        .from("memberships")
+  //        .select()
+  //        .eq('user_id', session.user.id);
+  //      if (data) {
+  //       setMyCommunities(data);
+  //      }
+  //    } catch (error) {
+  //      alert("Error loading communities data!");
+  //      console.log(error);
+  //    } finally {
+  //      setLoading(false);
+  //    }
+  //  }
+
+  //   async function getACommunity() {
+  //     try {
+  //       setLoading(true);
+  //       const { data, error, status } = await supabase
+  //         .from("communities")
+  //         .select("name, description, image");
+  //       if (data) {
+  //         setCommunityNames(data);
+  //       }
+  //     } catch (error) {
+  //       alert("Error loading communities data!");
+  //       console.log(error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+
   return (
     <>
       <Head>
         <title>Quest Dashboard</title>
       </Head>
-      <div className={styles.header}>Quest</div>
-      <div className={styles.container}>
-        <Link className={styles.settings} href="/settings">
-          Settings
-        </Link>
-        <h1>Dashboard</h1>
-        <h2>Discover Communities</h2>
-        <div className={styles.projectRow}>
-          {communityNames ? (
-            communityNames.map((item) =>
-              // <p key={item.name.toString()}>{item.name}</p>
-              item.image != null ? (
-                <QuestCard
-                  logoImage={item.image}
-                  description={item.description}
-                  cardName={item.name}
-                  key={item.name.toString()}
-                ></QuestCard>
-              ) : (
-                <QuestCard
-                  logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
-                  description={item.description}
-                  cardName={item.name}
-                  key={item.name.toString()}
-                ></QuestCard>
-              )
-            )
-          ) : (
-            <></>
-          )}
+      <div className={styles.body}>
+        <div className={styles.navbar}>
+          <Link className={styles.settings} href="/settings">
+            <button className={styles.button}> Settings</button>
+          </Link>
         </div>
+        <div className={styles.container}>
+          <h1 className={styles.header}>Discover</h1>
+          <div className={styles.projectRow}>
+            {communities ? (
+              communities.map((item) =>
+                item.community != null ? (
+                  <QuestCard
+                    logoImage={item.image}
+                    description={item.description}
+                    cardName={item.name}
+                    key={item.name.toString()}
+                  ></QuestCard>
+                ) : (
+                  <QuestCard
+                    logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
+                    description={item.description}
+                    cardName={item.name}
+                    key={item.name.toString()}
+                  ></QuestCard>
+                )
+              )
+            ) : (
+              <></>
+            )}
+          </div>
 
-        <a href="/justice-pot"> Justice Pot</a>
+          <h1 className={styles.header}>Your Community</h1>
+
+          <div className={styles.projectRow}>
+            {communityNames ? (
+              communityNames.map((item) =>
+                item.image != null ? (
+                  <QuestCard
+                    logoImage={item.image}
+                    description={item.description}
+                    cardName={item.name}
+                    key={item.name.toString()}
+                  ></QuestCard>
+                ) : (
+                  <QuestCard
+                    logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
+                    description={item.description}
+                    cardName={item.name}
+                    key={item.name.toString()}
+                  ></QuestCard>
+                )
+              )
+            ) : (
+              <></>
+            )}
+          </div>
+
+          <a href="/justice-pot"> Justice Pot</a>
+        </div>
       </div>
     </>
   );
