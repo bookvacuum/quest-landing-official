@@ -2,3 +2,14 @@
   line-height: 0.5;
   width: 15rem;
 }
+
+.image {
+  border-radius: 20px;
+  box-shadow: 0 0 10px #ff05fc;
+  margin-bottom: 0.5rem;
+}
+
+.card:hover .image {
+  border: 4px solid rgba(217, 47, 236, 0.8);
+  box-shadow: 0 0 20px #ff05fc;
+}

@@ -13,7 +13,7 @@ const QuestCard = ({ cardName, logoImage, description}) => {
 
   return (
     <div className={styles.card}>
-        <img src={logoImage} width={200} height={200}/>
+        <img src={logoImage} className={styles.image} width={200} height={200}/>
         <h2>{cardName}</h2>
         <p>{description}</p>
     </div>

@@ -65,7 +65,7 @@ export default function Dashboard({ session }) {
                 ></QuestCard>
               ) : (
                 <QuestCard
-                  logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/11e59e33-b19f-4b2d-051a-9b7cd7273100/public"
+                  logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
                   description={item.description}
                   cardName={item.name}
                   key={item.name.toString()}
