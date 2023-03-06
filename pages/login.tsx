@@ -12,7 +12,6 @@ import Dashboard from "../pages/dashboard";
 
 const Home = () => {
   const session = useSession();
-  const user = useUser();
   const supabase = useSupabaseClient();
 
   return (
@@ -85,7 +84,7 @@ const Home = () => {
           />
         </div>
       ) : (
-        <Dashboard session={session} />
+        <Dashboard />
       )}
     </div>
   );
