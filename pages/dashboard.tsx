@@ -26,15 +26,6 @@ export default function Dashboard() {
   const [communities, setMyCommunities] = useState(null);
   const [memberships, setMyMemberships] = useState(null);
 
-  const [loading, setLoading] = useState(null);
-  const [loading2, setLoading2] = useState(null);
-
-  // useEffect(() => {
-  //   if (session) {
-  //     getCommunities();
-  //     getMyCommunities();
-  //   }
-  // }, [session]);
   useEffect(() => {
     async function getCommunities() {
       const { data } = await supabaseClient.from("communities").select("*");
@@ -42,15 +33,17 @@ export default function Dashboard() {
     }
     async function getMyCommunities() {
       const { data } = await supabaseClient.from("memberships").select("*");
-      console.log(data);
-      setMyMemberships(data);
+      if (data) {
+        for (const element of data) {
+          getACommunity(element.community);
+        }
+      }
     }
     async function getACommunity(community_id) {
       const { data } = await supabaseClient
         .from("communities")
         .select("name, description, image")
         .eq("uuid", community_id);
-      console.log(data);
       setMyCommunities(data);
     }
     // Only run query once user is logged in.
@@ -59,72 +52,6 @@ export default function Dashboard() {
       getMyCommunities();
     }
   }, [user]);
-
-  // async function getCommunities() {
-  //   try {
-  //     setLoading(true);
-  //     const { data, error, status } = await supabase
-  //       .from("communities")
-  //       .select("name, description, image");
-  //     if (data) {
-  //       setCommunityNames(data);
-  //     }
-  //   } catch (error) {
-  //     alert("Error loading communities data!");
-  //     console.log(error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
-
-  // async function getCommunityInfo(community_id) {
-  //   try {
-  //     setLoading(true);
-  //     const { data, error, status } = await supabase
-  //       .from("communities")
-  //       .select()
-  //        .eq('uuid', session.user.id);
-
-  // }
-
-  // async function getMyCommunities() {
-  //   try {
-  //     setLoading2(true);
-  //     const { data, error, status } = await supabase
-  //       .from("profiles")
-  //       .select("*");
-  //     // .eq("user_id", session.user.id);
-  //     // useEffect(() => {
-  //     if (data) {
-  //       console.log(data);
-  //       // getACommunity(data);
-  //     }
-  //     // }, [session]);
-  //   } catch (error) {
-  //     alert("Error loading community!");
-  //     console.log(error);
-  //   } finally {
-  //     setLoading2(false);
-  //   }
-  // }
-
-  // async function getACommunity(community_id) {
-  //   try {
-  //     setLoading(true);
-  //     const { data, error, status } = await supabase
-  //       .from("communities")
-  //       .select("name, description, image")
-  //       .eq("uuid", community_id);
-  //     if (data) {
-  //       setMyCommunities(data);
-  //     }
-  //   } catch (error) {
-  //     alert("Error loading communities data!");
-  //     console.log(error);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
 
   if (!user) return <></>;
 
