@@ -5,6 +5,7 @@ import styles from "../styles/dashboard.module.css";
 import Link from "next/link";
 import Settings from "../pages/settings";
 import QuestCard from "../components/communityCard";
+import Modal from "../components/communityModal";
 
 import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useState, useEffect } from "react";
@@ -21,6 +22,7 @@ import { useState, useEffect } from "react";
 export default function Dashboard() {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
+  const [isOpen, setIsOpen] = useState(false);
 
   const [communityNames, setCommunityNames] = useState(null);
   const [communities, setMyCommunities] = useState(null);
@@ -72,19 +74,23 @@ export default function Dashboard() {
             {communityNames ? (
               communityNames.map((item) =>
                 item.image != null ? (
-                  <QuestCard
-                    logoImage={item.image}
-                    description={item.description}
-                    cardName={item.name}
-                    key={item.name}
-                  ></QuestCard>
+                  <div onClick={() => setIsOpen(true)}>
+                    <QuestCard
+                      logoImage={item.image}
+                      description={item.description}
+                      cardName={item.name}
+                      key={item.name}
+                    ></QuestCard>
+                  </div>
                 ) : (
-                  <QuestCard
-                    logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
-                    description={item.description}
-                    cardName={item.name}
-                    key={item.name}
-                  ></QuestCard>
+                  <div onClick={() => setIsOpen(true)}>
+                    <QuestCard
+                      logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
+                      description={item.description}
+                      cardName={item.name}
+                      key={item.name}
+                    ></QuestCard>
+                  </div>
                 )
               )
             ) : (
@@ -98,19 +104,23 @@ export default function Dashboard() {
             {communities ? (
               communities.map((item) =>
                 item.image != null ? (
-                  <QuestCard
-                    logoImage={item.image}
-                    description={item.description}
-                    cardName={item.name}
-                    key={item.name}
-                  ></QuestCard>
+                  <div onClick={() => setIsOpen(true)}>
+                    <QuestCard
+                      logoImage={item.image}
+                      description={item.description}
+                      cardName={item.name}
+                      key={item.name}
+                    ></QuestCard>
+                  </div>
                 ) : (
-                  <QuestCard
-                    logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
-                    description={item.description}
-                    cardName={item.name}
-                    key={item.name}
-                  ></QuestCard>
+                  <div onClick={() => setIsOpen(true)}>
+                    <QuestCard
+                      logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
+                      description={item.description}
+                      cardName={item.name}
+                      key={item.name}
+                    ></QuestCard>
+                  </div>
                 )
               )
             ) : (
@@ -121,6 +131,7 @@ export default function Dashboard() {
           <a href="/justice-pot"> Justice Pot</a>
         </div>
       </div>
+      {isOpen && <Modal setIsOpen={setIsOpen} />}
     </>
   );
 }

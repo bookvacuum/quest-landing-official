@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../styles/communityCard.module.css"
-
+import { useState } from "react";
 
 
 /** joinedClassName explanation: The background image is determined by the classname we pass in. The classnames are conjoined 
@@ -10,13 +10,14 @@ import styles from "../styles/communityCard.module.css"
 
 const QuestCard = ({ cardName, logoImage, description}) => {
 
-
   return (
+    <>
     <div className={styles.card}>
         <img src={logoImage} className={styles.image} width={200} height={200}/>
         <h2>{cardName}</h2>
         <p>{description}</p>
     </div>
+    </>
   );
 };
 
