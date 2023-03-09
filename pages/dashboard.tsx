@@ -23,7 +23,7 @@ export default function Dashboard() {
   const supabaseClient = useSupabaseClient();
   const user = useUser();
   const [isOpen, setIsOpen] = useState(false);
-
+  const [communityInfo, setCommunityInfo] = useState(null);
   const [communityNames, setCommunityNames] = useState(null);
   const [communities, setMyCommunities] = useState(null);
   const [memberships, setMyMemberships] = useState(null);
@@ -74,7 +74,13 @@ export default function Dashboard() {
             {communityNames ? (
               communityNames.map((item) =>
                 item.image != null ? (
-                  <div onClick={() => setIsOpen(true)}>
+                  <div
+                    onClick={() => {
+                      setIsOpen(true);
+                      setCommunityInfo(item);
+                      console.log(communityInfo);
+                    }}
+                  >
                     <QuestCard
                       logoImage={item.image}
                       description={item.description}
@@ -83,7 +89,13 @@ export default function Dashboard() {
                     ></QuestCard>
                   </div>
                 ) : (
-                  <div onClick={() => setIsOpen(true)}>
+                  <div
+                    onClick={() => {
+                      setIsOpen(true);
+                      setCommunityInfo(item);
+                      console.log(communityInfo);
+                    }}
+                  >
                     <QuestCard
                       logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
                       description={item.description}
@@ -104,7 +116,12 @@ export default function Dashboard() {
             {communities ? (
               communities.map((item) =>
                 item.image != null ? (
-                  <div onClick={() => setIsOpen(true)}>
+                  <div
+                    onClick={() => {
+                      setIsOpen(true);
+                      setCommunityInfo(item);
+                    }}
+                  >
                     <QuestCard
                       logoImage={item.image}
                       description={item.description}
@@ -113,7 +130,12 @@ export default function Dashboard() {
                     ></QuestCard>
                   </div>
                 ) : (
-                  <div onClick={() => setIsOpen(true)}>
+                  <div
+                    onClick={() => {
+                      setIsOpen(true);
+                      setCommunityInfo(item);
+                    }}
+                  >
                     <QuestCard
                       logoImage="https://imagedelivery.net/Mgig1zCtwXqG3Y6Tm-8KUQ/506daba1-2571-4653-aabe-5d786266be00/public"
                       description={item.description}
@@ -131,7 +153,13 @@ export default function Dashboard() {
           <a href="/justice-pot"> Justice Pot</a>
         </div>
       </div>
-      {isOpen && <Modal setIsOpen={setIsOpen} />}
+      {isOpen && (
+        <Modal
+          setIsOpen={setIsOpen}
+          communityName={communityInfo.name}
+          description={communityInfo.description}
+        />
+      )}
     </>
   );
 }

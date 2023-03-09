@@ -79,7 +79,7 @@ const Home = () => {
           <Image
             z-index={11}
             src={community}
-            alt="Picture of the author"
+            alt="Picture in login page"
             className={styles.image}
           />
         </div>
