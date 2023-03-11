@@ -44,7 +44,7 @@ export default function Dashboard() {
     async function getACommunity(community_id) {
       const { data } = await supabaseClient
         .from("communities")
-        .select("name, description, image")
+        .select("*")
         .eq("uuid", community_id);
       setMyCommunities(data);
     }
@@ -158,6 +158,8 @@ export default function Dashboard() {
           setIsOpen={setIsOpen}
           communityName={communityInfo.name}
           description={communityInfo.description}
+          all_policy={communityInfo.all_user_policy}
+          approved_policy={communityInfo.approved_user_policy}
         />
       )}
     </>

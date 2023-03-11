@@ -1,6 +1,6 @@
 import styles from "../styles/Modal.module.css"
 
-const Modal = ({ setIsOpen, communityName, description}) => {
+const Modal = ({ setIsOpen, communityName, description, all_policy, approved_policy}) => {
   return (
     <>
       <>
@@ -15,6 +15,9 @@ const Modal = ({ setIsOpen, communityName, description}) => {
           </button>
           <div className={styles.modalContent}>
            about: {description} blah blah blahasfasdfasfsafsdfasfsfd
+          </div>
+             <div>
+            {all_policy} <br></br> {approved_policy}
           </div>
           {/* <div className={styles.modalActions}>
             <div className={styles.actionsContainer}> */}

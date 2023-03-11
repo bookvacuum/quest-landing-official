@@ -38,7 +38,7 @@ Buckle up for a wild story.
 </p>
 <p>
 (The story is long. If you want to read the TLDRs and scroll down to lessons
-learned that’s fine too :) )
+learned that is fine too. 
 </p>
 <h2>
 <strong>Context </strong>
@@ -50,7 +50,7 @@ learned that’s fine too :) )
 I was the only full time cofounder of a startup that was formed in late April. Almost immediately after formation, we went out to raise our pre-seed. The market was starting to affect pre-seed rounds as well, but during the next 2-3 months, we raised over 1mil at >= 10mil  valuation with some major institutional investors and angels. We had a relatively smooth experience fundraising pre-revenue, pre-product because we were riding off the wave of a new trend in the industry, I signed business agreements with two big publicly traded companies, we had several non-paying customers, and importantly, because the founding team had accolades, experiences, school degrees, and connections that were typically considered top notch in the startup/venture world. 
 </p>
 <p>
-During the whole time, my two co-founders, I’ll call them Kelly and Kevin, had full time jobs. Kelly was still in the middle of their PhD working at labs (not just one but two for some time), and Kevin was a senior engineer at one of the most successful “startups” out there. Needless to mention, we were operating completely remotely and asynchronously other than 2 weekly team meetings. To top it all off, 1) the equity split was completely even among the founders 2) all three founders were on the board, and 3) the two part-time co-founders wanted to pay themselves a salary only 20K lower than mine.
+During the whole time, my two co-founders, I will ll call them Kelly and Kevin, had full time jobs. Kelly was still in the middle of their PhD working at labs (not just one but two for some time), and Kevin was a senior engineer at one of the most successful “startups” out there. Needless to mention, we were operating completely remotely and asynchronously other than 2 weekly team meetings. To top it all off, 1) the equity split was completely even among the founders 2) all three founders were on the board, and 3) the two part-time co-founders wanted to pay themselves a salary only 20K lower than mine.
 </p>
 <p>
 In the beginning, I was okay with the arrangement because Kelly was initially spending the full time equivalent on this startup. Moreover, there was not much engineering work to be done at the beginning, and Kevin told us he is waiting for the cliff to hit later this year. I was happy to pay them a salary to make them feel appreciated and responsible for the work they are doing for the startup. 
